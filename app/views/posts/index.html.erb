@@ -2,7 +2,13 @@
 
 <% @posts.each do |post| %>
 	<li>
-			<%= post.user.email %>
-			<p><%= post.title %>
-	</p></li>
+		<%= link_to post.title, post_path(post.id) %>
+		<p><%= post.content %></p>
+		<p>by <%= post.user.email %></p>
+		<% if current_user.email == post.user.email %>
+			<%= link_to 'Delete this post', post, :method=> :delete, confirm: "You sure?" %>
+			<br>
+		<% end %>
+		<br>
+	</li>
 <% end %>

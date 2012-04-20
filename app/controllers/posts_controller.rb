@@ -11,15 +11,18 @@ class PostsController < ApplicationController
 	def create
 		@post = current_user.posts.build(params[:post])
 		if @post.save
-			redirect_to root_url, :notice => "Post created!"
+			redirect_to posts_url, :notice => "Post created!"
 		else
 			render 'new'
 		end
 	end
 
-#	def view
-#	end
+	def show
+		@post = Post.find(params[:id])
+	end
 
 	def destroy
+		Post.find(params[:id]).destroy
+		redirect_to root_url
 	end
 end
