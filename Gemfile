@@ -11,8 +11,6 @@ end
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'acts-as-taggable-on'
 gem 'will_paginate'
-gem 'bootstrap-sass'
-gem 'will_paginate-bootstrap'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -20,6 +18,8 @@ group :assets do
   gem 'sass-rails', "  ~> 3.1.0"
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
+	gem 'bootstrap-sass'
+	gem 'will_paginate-bootstrap'
 end
 
 gem 'jquery-rails'
