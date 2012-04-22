@@ -1,19 +1,24 @@
-<h1>All posts</h1>
+<div class="page-header">
+	<h1>All posts</h1>
+</div>
 
+<div class="pagination">
 <%= will_paginate @posts %>
+</div>
 <br>
 <% @posts.each do |post| %>
 	<li>
-		<%= link_to post.title, post %>
-		<p><%= post.content %></p>
-		<p>by <%= link_to post.user.nickname, post.user %>
-    <%= time_ago_in_words post.created_at %> ago</p>
-		<% if !current_user.nil? && current_user.email == post.user.email %>
-			<%= link_to 'Delete this post', post, :method=> :delete, confirm: "You sure?" %>
-			<br>
-		<% end %>
-		<br>
+    <div class="post">
+  		<div id="title"><%= link_to post.title, post %></div><div id="author"> by <%= link_to post.user.nickname, post.user %> <%= time_ago_in_words post.created_at %> ago</div>
+	  	<% if !current_user.nil? && current_user.email == post.user.email %>
+		  	<%= link_to 'Delete this post', post, :method=> :delete, confirm: "You sure?" %>
+  			<br>
+	  	<% end %>
+	  	<div id='content'><%= truncate(post.content, :length => 25, :omission => '...') %></div>
+  		<br>
+    </div>
 	</li>
 <% end %>
-
+<div class="pagination">
 <%= will_paginate @posts %>
+</div>

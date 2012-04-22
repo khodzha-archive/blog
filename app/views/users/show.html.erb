@@ -1,8 +1,18 @@
+<div class="page-header">
 <h1>Posts of <%= @user.nickname %></h1>
+</div>
 
 <% @user.posts.each do |post| %>
-  <h1><%= link_to post.title, post %></h1>
-  <p><%= post.content %></p>
-  <br>
+	<li>
+    <div class="post">
+  		<div id="title"><%= link_to post.title, post %></div><div id="author"> by <%= link_to post.user.nickname, post.user %> <%= time_ago_in_words post.created_at %> ago</div>
+	  	<% if !current_user.nil? && current_user.email == post.user.email %>
+		  	<%= link_to 'Delete this post', post, :method=> :delete, confirm: "You sure?" %>
+  			<br>
+	  	<% end %>
+	  	<div id='content'><%= truncate(post.content, :length => 25, :omission => '...') %></div>
+  		<br>
+    </div>
+	</li>
 <% end %>
 
