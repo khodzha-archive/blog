@@ -7,7 +7,28 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-		<%= render 'layouts/header' %>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <% if current_user %>
+            <ul class="nav">
+              <li>Logged in as <%= current_user.nickname %>.</li>
+              <li class="divider-vertical"></li>
+              <li class="active"><%= link_to "My profile", edit_user_path(current_user) %></li>
+              <li class="active"><%= link_to "Posts", posts_path %></li>
+              <li class="active"><%= link_to "Create new post", new_post_path %></li>
+              <li class="divider-vertical"></li>
+              <li class="active pull-right"><%= link_to "Log out", log_out_path %></li>
+            </ul>
+          <% else %>
+            <ul class="nav">
+              <li class="active"><%= link_to "Sign up", sign_up_path %></li>
+              <li class="active"><%= link_to "log in", log_in_path %></li>
+  		      </ul>
+          <% end %>
+        </div>
+      </div>
+    </div>
 
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, :id => "flash_#{name}" %>
