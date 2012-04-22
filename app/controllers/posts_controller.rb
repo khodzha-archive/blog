@@ -1,4 +1,14 @@
 class PostsController < ApplicationController
+	def tag_cloud
+    @tags = @post.tag_counts_on(:tags)
+	end
+
+	def tag
+		@tag_name = params[:id]
+    @posts = Post.tagged_with(params[:id])
+		render 'tags/show'
+	end
+
 	def index
 		@posts = Post.all
 		render 'index'
@@ -19,6 +29,9 @@ class PostsController < ApplicationController
 
 	def show
 		@post = Post.find(params[:id])
+		@user = current_user
+    tag_cloud
+		@comment = @post.comments.new
 	end
 
 	def destroy

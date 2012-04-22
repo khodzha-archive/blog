@@ -1,0 +1,8 @@
+<h1>Posts of <%= @user.email %></h1>
+
+<% @user.posts.each do |post| %>
+  <h1><%= post.title %></h1>
+  <p><%= post.content %></p>
+  <br>
+<% end %>
+

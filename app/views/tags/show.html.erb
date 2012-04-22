@@ -1,5 +1,4 @@
-<h1>All posts</h1>
-
+<h1>Posts, tagged with <%= @tag_name %></h1>
 <% @posts.each do |post| %>
 	<li>
 		<%= link_to post.title, post %>

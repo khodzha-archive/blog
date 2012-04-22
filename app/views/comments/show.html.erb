@@ -1,0 +1,4 @@
+<% @post.comments.each do |comment| %>
+  <p><%= user.find(comment.user_id).email %> writes: </p>
+	<p><%= comment.text %></p>
+<% end %>

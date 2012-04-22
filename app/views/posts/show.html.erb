@@ -1,5 +1,40 @@
 <h1><%= @post.title %></h1>
+<p>Posted by <%= @post.user.email %> at <%= @post.created_at %> (<%= time_ago_in_words @post.created_at %> ago)</p>
 <p><%= @post.content %></p>
-<p>by <%= @post.user.email %></p>
+
+<h5>Tags</h5>
+<% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+  <%= link_to tag.name, { :action => :tag, :id => tag.name }, :class => css_class %>
+<% end %>
 <br>
+
 <h5>Comments</h5>
+<% @post.comments.each do |comment| %>
+	<% if !comment.created_at.nil? %>
+		<% if !comment.user_id.nil? %>
+      <p><%= User.find(comment.user_id).email %> writes <%= time_ago_in_words comment.created_at%> ago:</p>
+		<% else %>
+			<p>Anonymous writes <%= time_ago_in_words comment.created_at%> ago:</p>
+		<% end %>
+	  <p><%= comment.content %></p>
+	<% end %>
+<% end %>
+
+
+<%= form_for [@post, @comment] do |f| %>
+  <% if @comment.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @comment.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= f.label :content %><br />
+    <%= f.text_field :content %>
+  </p>
+  <p class="button"><%= f.submit %></p>
+<% end %>
