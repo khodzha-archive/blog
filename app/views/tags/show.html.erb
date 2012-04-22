@@ -1,7 +1,8 @@
 <div class="page-header">
-<h1>Posts, tagged with <%= @tag_name %></h1>
+  <h1>Posts, tagged with <%= @tag_name %></h1>
 </div>
-<%= will_paginate @posts %>
+
+<%= will_paginate @posts, :renderer => BootstrapPagination::Rails %>
 <br>
 <% @posts.each do |post| %>
 	<li>
@@ -16,4 +17,4 @@
     </div>
 	</li>
 <% end %>
-<%= will_paginate @posts %>
+<%= will_paginate @posts, :renderer => BootstrapPagination::Rails %>

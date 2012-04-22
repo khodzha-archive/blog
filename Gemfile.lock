@@ -111,6 +111,8 @@ GEM
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
     will_paginate (3.0.3)
+    will_paginate-bootstrap (0.2.0)
+      will_paginate (>= 3.0.3)
 
 PLATFORMS
   ruby
@@ -128,3 +130,4 @@ DEPENDENCIES
   turn
   uglifier
   will_paginate
+  will_paginate-bootstrap

@@ -2,9 +2,7 @@
 	<h1>All posts</h1>
 </div>
 
-<div class="pagination">
-<%= will_paginate @posts %>
-</div>
+<%= will_paginate @posts, :renderer => BootstrapPagination::Rails %>
 <br>
 <% @posts.each do |post| %>
 	<li>
@@ -19,6 +17,5 @@
     </div>
 	</li>
 <% end %>
-<div class="pagination">
-<%= will_paginate @posts %>
-</div>
+
+<%= will_paginate @posts, :renderer => BootstrapPagination::Rails %>
