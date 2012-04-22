@@ -10,7 +10,6 @@ end
 
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'acts-as-taggable-on'
-gem 'will_paginate'
 gem 'bootstrap-sass'
 gem 'will_paginate-bootstrap'
 

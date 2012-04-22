@@ -129,5 +129,4 @@ DEPENDENCIES
   sqlite3
   turn
   uglifier
-  will_paginate
   will_paginate-bootstrap
