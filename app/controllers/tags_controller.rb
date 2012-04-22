@@ -5,6 +5,6 @@ class TagsController
 
   def show
     @tag = Tag.find(params[:id])
-    @posts = Posts.find_tagged_with(@tag)
+    @posts = Posts.find_tagged_with(@tag).paginate(:page => params[:page], :per_page => 5)
   end
 end

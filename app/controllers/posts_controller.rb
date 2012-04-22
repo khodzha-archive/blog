@@ -5,12 +5,12 @@ class PostsController < ApplicationController
 
 	def tag
 		@tag_name = params[:id]
-    @posts = Post.tagged_with(params[:id])
+    @posts = Post.tagged_with(params[:id]).paginate(:page => params[:page], :per_page => 5)
 		render 'tags/show'
 	end
 
 	def index
-		@posts = Post.all
+		@posts = Post.paginate(:page => params[:page], :per_page => 5)
 		render 'index'
 	end
 	

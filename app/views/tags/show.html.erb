@@ -1,4 +1,7 @@
 <h1>Posts, tagged with <%= @tag_name %></h1>
+
+<%= will_paginate @posts %>
+<br>
 <% @posts.each do |post| %>
 	<li>
 		<%= link_to post.title, post %>
@@ -12,3 +15,4 @@
 		<br>
 	</li>
 <% end %>
+<%= will_paginate @posts %>
