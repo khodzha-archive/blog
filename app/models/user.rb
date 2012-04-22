@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :password, :password_confirmation
+  attr_accessible :email, :password, :password_confirmation, :nickname
   
   attr_accessor :password
   before_save :encrypt_password
@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validates_presence_of :password, :on => :create
   validates_presence_of :email
   validates_uniqueness_of :email
+	validates_format_of :email, :with => /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i, :on => :create
 
 	has_many :posts, :dependent => :destroy
 	has_many :comments, :dependent => :destroy

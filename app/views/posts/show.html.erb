@@ -1,5 +1,5 @@
 <h1><%= @post.title %></h1>
-<p>Posted by <%= @post.user.email %> at <%= @post.created_at %> (<%= time_ago_in_words @post.created_at %> ago)</p>
+<p>Posted by <%= @post.user.nickname %> at <%= @post.created_at %> (<%= time_ago_in_words @post.created_at %> ago)</p>
 <p><%= @post.content %></p>
 
 <h5>Tags</h5>
@@ -12,7 +12,7 @@
 <% @post.comments.each do |comment| %>
 	<% if !comment.created_at.nil? %>
 		<% if !comment.user_id.nil? %>
-      <p><%= User.find(comment.user_id).email %> writes <%= time_ago_in_words comment.created_at%> ago:</p>
+      <p><%= User.find(comment.user_id).nickname %> writes <%= time_ago_in_words comment.created_at%> ago:</p>
 		<% else %>
 			<p>Anonymous writes <%= time_ago_in_words comment.created_at%> ago:</p>
 		<% end %>
