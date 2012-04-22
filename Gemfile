@@ -12,6 +12,7 @@ gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'acts-as-taggable-on'
 gem 'bootstrap-sass'
 gem 'will_paginate-bootstrap'
+gem 'will_paginate'
 
 # Gems used only for assets and not required
 # in production environments by default.
