@@ -1,13 +1,13 @@
 class Post < ActiveRecord::Base
-	attr_accessible :title, :content, :tag_list
+  attr_accessible :title, :content, :tag_list
 
   acts_as_taggable_on :tags
 
-	validates_presence_of :title
-	validates_presence_of :content
-	validates_presence_of :user_id, :on => :create
+  validates_presence_of :title
+  validates_presence_of :content
+  validates_presence_of :user_id, :on => :create
 
-	belongs_to :user
-	has_many :comments, :dependent => :destroy
+  belongs_to :user
+  has_many :comments, :dependent => :destroy
 
 end

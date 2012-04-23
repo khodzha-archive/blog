@@ -5,16 +5,16 @@
 <%= will_paginate @posts, :renderer => BootstrapPagination::Rails %>
 <br>
 <% @posts.each do |post| %>
-	<li>
+  <li>
     <div class="post">
-  		<div id="title"><%= link_to post.title, post %></div><div id="author"> by <%= link_to post.user.nickname, post.user %> <%= time_ago_in_words post.created_at %> ago</div>
-	  	<% if !current_user.nil? && current_user.email == post.user.email %>
-		  	<%= link_to 'Delete this post', post, :method=> :delete, confirm: "You sure?" %>
-  			<br>
-	  	<% end %>
-	  	<div id='content'><%= truncate(post.content, :length => 25, :omission => '...') %></div>
-  		<br>
+      <div id="title"><%= link_to post.title, post %></div><div id="author"> by <%= link_to post.user.nickname, post.user %> <%= time_ago_in_words post.created_at %> ago</div>
+      <% if !current_user.nil? && current_user.email == post.user.email %>
+        <%= link_to 'Delete this post', post, :method=> :delete, confirm: "You sure?" %>
+        <br>
+      <% end %>
+      <div id='content'><%= truncate(post.content, :length => 25, :omission => '...') %></div>
+      <br>
     </div>
-	</li>
+  </li>
 <% end %>
 <%= will_paginate @posts, :renderer => BootstrapPagination::Rails %>

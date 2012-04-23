@@ -10,8 +10,8 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
 	validates_format_of :email, :with => /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i, :on => :create
 
-	has_many :posts, :dependent => :destroy
-	has_many :comments, :dependent => :destroy
+  has_many :posts, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
   
   def self.authenticate(email, password)
     user = find_by_email(email)

@@ -1,0 +1,79 @@
+@import "bootstrap";
+
+html {
+  overflow: scroll;
+}
+
+
+body {
+  padding-top: 40px;
+}
+
+.center {
+	text-align: center;
+}
+
+.page-header {
+	padding-left: 160px;
+}
+
+li {
+  list-style-type: none;
+}
+
+.post {
+  padding-left: 80px;
+  #title {
+	  text-align: left;
+    font-size: 2.5em;
+    padding-bottom: 10px;
+  }
+  #author{
+    text-align: right;
+    padding-right: 70px;
+  }
+  br {
+    padding-bottom: 60px;		
+  }
+}
+
+#content {
+  padding-left: 200px;
+  font-size: 1.5em;
+}
+
+.post-header {
+  padding-left: 40px;
+}
+
+.post-content {
+  padding-left: 80px;
+  font-size: 1.5em;
+  padding-bottom: 40px;
+}
+
+.tags {
+  padding-left: 100px;
+  padding-bottom: 15px;
+  #tag {
+    font-size: 1.1em;
+    padding-right: 20px;
+  }
+  h5 {
+    font-size: 1.3em;
+    padding-bottom: 10px;
+  }
+}
+
+.comments {
+  padding-left: 100px;
+  p {
+    padding-left: 20px;
+    font-size: 1.1em;
+    padding-bottom: 10px;
+  }
+  h5 {
+    font-size: 1.3em;
+    padding-bottom: 10px;
+  }
+}
